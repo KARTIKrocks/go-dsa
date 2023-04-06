@@ -1,9 +1,9 @@
 // Golang program for implementation of Binary Search
 
 /*
-	A binary search is a search strategy used to find elements within a list by consistently reducing the amount of data to be searched and thereby increasing the rate at which the search term is found. To use a binary search algorithm,
-	the list to be operated on must have already been sorted.
-*/
+ *A binary search is a search strategy used to find elements within a list by consistently reducing the amount of data to be searched and thereby increasing the rate at which the search term is found. To use a binary search algorithm,
+ *the list to be operated on must have already been sorted.
+ */
 
 package main
 
@@ -13,6 +13,10 @@ func binarySearch(key int, array []int) (bool, int) {
 
 	low := 0               // first index
 	high := len(array) - 1 // last index
+
+	if key < array[low] || key > array[high] {
+		return false, -1
+	}
 
 	for low <= high {
 		median := (low + high) / 2
