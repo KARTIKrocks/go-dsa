@@ -9,7 +9,7 @@ package main
 
 import "fmt"
 
-func binarySearch(key int, array []int) (bool, int) {
+func binarySearch(array []int, key int) (bool, int) {
 
 	low := 0               // first index
 	high := len(array) - 1 // last index
@@ -35,5 +35,5 @@ func binarySearch(key int, array []int) (bool, int) {
 
 func main() {
 	items := []int{1, 2, 3, 4, 5}
-	fmt.Println(binarySearch(7, items))
+	fmt.Println(binarySearch(items, 7))
 }

@@ -5,8 +5,8 @@ package main
 
 import "fmt"
 
-func linearsearch(datalist []int, key int) (bool, int) {
-	for index, item := range datalist {
+func linearsearch(array []int, key int) (bool, int) {
+	for index, item := range array {
 		if item == key {
 			return true, index
 		}

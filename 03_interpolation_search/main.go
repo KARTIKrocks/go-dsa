@@ -17,11 +17,7 @@ func interpolationSearch(array []int, key int) (bool, int) {
 	low, high := 0, len(array)-1
 
 	for {
-		if key < min {
-			return false, -1
-		}
-
-		if key > max {
+		if (key < min || key > max) {
 			return false, -1
 		}
 
