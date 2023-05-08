@@ -5,35 +5,41 @@
  *the list to be operated on must have already been sorted.
  */
 
-package main
+ package main
 
-import "fmt"
-
-func binarySearch(array []int, key int) (bool, int) {
-
-	low := 0               // first index
-	high := len(array) - 1 // last index
-
-	if key < array[low] || key > array[high] {
-		return false, -1
-	}
-
-	for low <= high {
-		median := (low + high) / 2
-
-		if array[median] == key {
-			return true, median
-		} else if array[median] < key {
-			low = median + 1
-		} else {
-			high = median - 1
-		}
-	}
-
-	return false, -1
-}
-
-func main() {
-	items := []int{1, 2, 3, 4, 5}
-	fmt.Println(binarySearch(items, 7))
-}
+ import "fmt"
+ 
+ func binarySearch(array []int, key int) (bool, int) {
+ 
+	 low := 0               // first index
+	 high := len(array) - 1 // last index
+ 
+	 if key < array[low] || key > array[high] {
+		 return false, -1
+	 }
+ 
+	 for low <= high {
+		 median := (low + high) / 2
+ 
+		 if array[median] == key {
+			 // scan backwards for start of value range, finds first occurence of the key
+			 guess := median
+			 for array[guess-1] == key {
+				 guess--
+			 }
+			 return true, guess
+		 } else if array[median] < key {
+			 low = median + 1
+		 } else {
+			 high = median - 1
+		 }
+	 }
+ 
+	 return false, -1
+ }
+ 
+ func main() {
+	 items := []int{2, 2, 2, 2, 4, 5}
+	 fmt.Println(binarySearch(items, 2))
+ }
+ 
